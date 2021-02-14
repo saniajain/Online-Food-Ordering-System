@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OfosDb" Class="ofosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\App_Data\OfosDb.mdf;Integrated Security=True" SettingsObjectName="OFOS.Properties.Settings" SettingsPropertyName="OfosDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StaffLogin" Member="StaffLogins">
+    <Type Name="StaffLogin">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FoodItem" Member="FoodItems">
+    <Type Name="FoodItem">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FoodItemName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FoodItemImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FoodItemPrice" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="FoodItemAvailable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FoodItemCategory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderPlaced" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TotalCost" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FoodIngredients" Member="FoodIngredients">
+    <Type Name="FoodIngredient">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FoodItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ingredient" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Customer_Insert" Method="Customer_Insert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.StaffLogin_Check" Method="StaffLogin_Check">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="StaffLogin_CheckResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FoodItem_Fetch" Method="FoodItem_Fetch">
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="FoodItem_FetchResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FoodItemName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FoodItemImage" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FoodItemPrice" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="FoodItemAvailable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FoodItemAvailability_Update" Method="FoodItemAvailability_Update">
+    <Parameter Name="FoodItemName" Parameter="foodItemName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UpdatedItems" Parameter="updatedItems" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FoodItemAvailable_Check" Method="FoodItemAvailable_Check">
+    <Parameter Name="FoodItemName" Parameter="foodItemName" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="FoodItemAvailable_CheckResult">
+      <Column Name="FoodItemAvailable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FoodItemInsert" Method="FoodItemInsert">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Decimal(4,2)" />
+    <Parameter Name="AvailableCount" Parameter="availableCount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Order_Insert" Method="Order_Insert">
+    <Parameter Name="CustomerId" Parameter="customerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OrderPlaced" Parameter="orderPlaced" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TotalCost" Parameter="totalCost" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="OrderId" Parameter="orderId" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FoodItemUpdate" Method="FoodItemUpdate">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Image" Parameter="image" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Decimal(4,2)" />
+    <Parameter Name="AvailableCount" Parameter="availableCount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetTax" Method="GetTax">
+    <Parameter Name="Province" Parameter="province" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="GetTaxResult">
+      <Column Name="Tax" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetIngredients" Method="GetIngredients">
+    <Parameter Name="FoodItemId" Parameter="foodItemId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetIngredientsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FoodItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ingredient" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FoodIngredientsInsertUpdate" Method="FoodIngredientsInsertUpdate">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FoodItemId" Parameter="foodItemId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ingredient" Parameter="ingredient" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Double" DbType="Float" />
+    <Parameter Name="Unit" Parameter="unit" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FoodItemDelete" Method="FoodItemDelete">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FoodIngredientDelete" Method="FoodIngredientDelete">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ofos">
+  <DataContextMoniker Name="/ofosDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bfc9ce10-c09f-490b-9a05-2f04a5773388" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ofosDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="28083537-5887-4f85-a43d-690277e955a0" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e7bbb1c-093a-48f2-8138-581cf476ef12" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ofosDataContext/StaffLogin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f0472288-203d-478b-a3a8-6203e7a67cf7" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f91b98c7-6dc4-48f8-82dd-5e329e1382cf" absoluteBounds="0.75, 3.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/ofosDataContext/FoodItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e0ffb00-5f50-4f79-a16e-fab980b6b88e" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54bd2178-8b12-473f-bf01-481abdf2bb24" absoluteBounds="3.75, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/ofosDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d339a73-a57f-4c50-b0cf-024161faf541" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ba2dec1-655b-449c-b5e3-b71f9b942403" absoluteBounds="6.875, 2, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ofosDataContext/FoodIngredient" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7610b984-d6ea-48e7-a8ea-8b8c85f178e3" absoluteBounds="6.89, 2.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

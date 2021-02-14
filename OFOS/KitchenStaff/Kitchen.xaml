@@ -1,0 +1,18 @@
+﻿<Window x:Class="OFOS.KitchenStaff.Kitchen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OFOS.KitchenStaff"
+        mc:Ignorable="d"
+        Title="Kitchen" Height="450" Width="800">
+    <Grid Background ="SkyBlue">
+        <DataGrid Background="Bisque" HorizontalAlignment="Left" Height="293" Name="KitchenGrid" Margin="25,93,0,0" VerticalAlignment="Top" Width="740"/>
+        <Button x:Name="UpdateButton" Content="Update" HorizontalAlignment="Left" Margin="49,308,0,0" VerticalAlignment="Top" Width="110" Height="40" Click="UpdateButton_Click"/>
+        <Button x:Name="DeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="194,308,0,0" VerticalAlignment="Top" Width="101" Height="40" Click="DeleteButton_Click"/>
+        <Button x:Name="OrdersPlacedButton" Content="OrdersPlaced" HorizontalAlignment="Left" Margin="335,308,0,0" VerticalAlignment="Top" Width="108" Height="40" Click="OrdersPlacedbutton_Click"/>
+        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="621,308,0,0" VerticalAlignment="Top" Width="119" Height="40" Click="CloseButton_Click"/>
+        <Button x:Name="ReloadButton" Content="ReloadOrders" HorizontalAlignment="Left" Margin="474,308,0,0" VerticalAlignment="Top" Width="110" Height="40" Click="ReloadButton_Click"/>
+        <Label Background="Lavender" Content="Orders" FontSize="40" HorizontalAlignment="Center" Margin="335,10,320,346" Width="137" RenderTransformOrigin="0.518,0.527"/>
+    </Grid>
+</Window>

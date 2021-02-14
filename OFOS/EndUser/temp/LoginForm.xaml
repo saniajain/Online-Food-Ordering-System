@@ -1,0 +1,51 @@
+﻿<Window x:Class="OFOS.EndUser.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OFOS.EndUser"
+        mc:Ignorable="d"
+        Title="LoginForm" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="800"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Label Background="RosyBrown" Content="Online Food Ordering System" FontSize="40" HorizontalAlignment="Center" Margin="31,8,210,66.333" Grid.RowSpan="2" Width="559" RenderTransformOrigin="0.518,0.527" Grid.Column="1"/>
+        <TabControl  x:Name="TabControlLogin" HorizontalAlignment="Left" Height="298" Margin="34,24.333,0,0" Grid.Row="1" Grid.RowSpan="4" VerticalAlignment="Top" Width="730" Grid.ColumnSpan="2">
+            <TabItem x:Name="TabItem1" Header="Customer" HorizontalAlignment="Left" Margin="-2,-2,0,0" Width="64">
+                <Grid Background="BurlyWood"  Margin="-25,-3,-14.667,-7.667">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="108*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="556*"/>
+                        <ColumnDefinition Width="85*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="2" Content="Enter name" VerticalAlignment="Center" RenderTransformOrigin="2.567,1.042" Margin="2.436,34,464,214.667" Height="32"/>
+                    <TextBox x:Name="textbox1" Width="127" HorizontalAlignment="Left" RenderTransformOrigin="2.461,0.844" Margin="103.436,37,0,222.667" Grid.Column="2"/>
+                    <Label Grid.Column="2" Content="Enter Mobile" VerticalAlignment="Center" Margin="4.436,70,473,186.667" RenderTransformOrigin="0.425,-0.427" Height="24"/>
+                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Width="125" Margin="102.436,72,0,186.667" RenderTransformOrigin="1.024,0.153" Grid.Column="2"/>
+                    <Button x:Name="customerLogin" Click="AddCustomer_click" Content="Login" Margin="91.436,126,386,132.667" Grid.Column="2"/>
+                    <Label Content="Please login using your name and mobile" FontStyle="Italic" Grid.Column="2" HorizontalAlignment="Left" Margin="17.436,5,0,0" VerticalAlignment="Top" Width="232"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItem2" Header="Staff" Margin="-2,-2,-9,0">
+                <Grid Background="BurlyWood" Margin="-2,-2,-0.667,1.333">
+                    <Label x:Name="staffUserName" Content="User name" HorizontalAlignment="Left" Margin="56,44,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="staffPassword" Content="Password" HorizontalAlignment="Left" Margin="58,79,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="UserNameTextBox" HorizontalAlignment="Left" Height="23" Margin="166,50,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="23" Margin="166,82,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="120"/>
+                    <Button Click="staffLogin_Click" x:Name="staffLogin" Content="Login" HorizontalAlignment="Left" Margin="133,126,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Label Content="Login to view the system" FontStyle="Italic" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="317"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

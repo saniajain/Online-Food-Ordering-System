@@ -1,0 +1,33 @@
+﻿<Window x:Class="OFOS.Admin.FoodIngredients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OFOS.Admin"
+        mc:Ignorable="d"
+        Title="FoodIngredients" Height="494" Width="504">
+    <Grid>
+        <DataGrid HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="463" x:Name="GridFoodItem" AutoGenerateColumns="False" Height="249" SelectionChanged="GridFoodItem_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" ClipboardContentBinding="{x:Null}" Header="Id"/>
+                <DataGridTextColumn Binding="{Binding FoodItemName}" ClipboardContentBinding="{x:Null}" Header="Name"/>
+                <DataGridTemplateColumn Header="Image" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding FoodItemImage}" Width="50px" Height="50px" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding FoodItemPrice}" ClipboardContentBinding="{x:Null}" Header="Price"/>
+                <DataGridTextColumn Binding="{Binding FoodItemAvailable}" ClipboardContentBinding="{x:Null}" Header="Available"/>
+                <DataGridTextColumn Binding="{Binding FoodItemCategory}" ClipboardContentBinding="{x:Null}" Header="Category"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="GridIngredients" HorizontalAlignment="Left" Height="164" Margin="10,264,0,0" VerticalAlignment="Top" Width="463" SelectionChanged="GridIngredients_SelectionChanged"/>
+        <Button x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="398,433,0,0" VerticalAlignment="Top" Width="75" Click="btnNew_Click" IsEnabled="False"/>
+        <Button x:Name="BtnEdit" Content="Edit" HorizontalAlignment="Left" Margin="319,433,0,0" VerticalAlignment="Top" Width="74" Click="BtnEdit_Click" IsEnabled="False"/>
+        <Button x:Name="BtnFoodItems" Content="Food Items" HorizontalAlignment="Left" Margin="10,433,0,0" VerticalAlignment="Top" Width="75" Click="BtnFoodItems_Click" Background="#FFF97979"/>
+        <Button x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="239,433,0,0" VerticalAlignment="Top" Width="75" Click="BtnDelete_Click" IsEnabled="False"/>
+
+    </Grid>
+</Window>
